@@ -10,7 +10,8 @@ public class Main {
         ProductsDAO products= new ProductDAOImpl();
         try{
             for (ProductsTO productSold:products.getProductByCustomerName("Thomas Hardy")){
-                System.out.printf(productSold.getProductName(),productSold.getUnitPrice());
+                System.out.println(productSold.getProductName());
+                System.out.println(productSold.getUnitPrice());
                 System.out.println();
             }
         } catch (ClassNotFoundException e) {

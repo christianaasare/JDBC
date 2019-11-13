@@ -11,11 +11,7 @@ public class ProductDAOImpl implements ProductsDAO {
     public List<ProductsTO> getProductByCustomerName(String customerName) throws ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
         try (Connection db = DriverManager.getConnection(url,"christiana-asare","turntabl")){
-            PreparedStatement preparedStatement=db.prepareStatement("Select products.product_name,order_details.unit_price from products"+
-                    " inner join order_details on order_details.product_id = products.product_id"+
-                    " inner join orders.order_id = order_details.order_id " +
-                    "inner join customers on customers.customer_id = orders.customer_id where customers.contact_name = ?"
-                    ) ;
+            PreparedStatement preparedStatement=db.prepareStatement("Select products.product_name,products.unit_price from products inner join order_details on order_details.product_id = products.product_id inner join orders on order_details.order_id = orders.order_id inner join customers on orders.customer_id = customers.customer_id where customers.contact_name = ?") ;
            preparedStatement.clearParameters();
            preparedStatement.setString(1,customerName);
             ResultSet resultSet = preparedStatement.executeQuery();
