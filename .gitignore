@@ -1,8 +1,8 @@
 build/
 .idea
 .gradle
-#src/main/java/io/turntabl/ProductsDAO.class
-#src/main/java/io/turntabl/ProductsTO.class
-#src/main/java/io/turntabl/CustomersTO.class
-#src/main/java/io/turntabl/ProductDAOImpl
-#src/main/java/io/turntabl/CustomersDAO.class
+src/main/java/io/turntabl/ProductsDAO.class
+src/main/java/io/turntabl/ProductsTO.class
+src/main/java/io/turntabl/CustomersTO.class
+src/main/java/io/turntabl/ProductDAOImpl
+src/main/java/io/turntabl/CustomersDAO.class
