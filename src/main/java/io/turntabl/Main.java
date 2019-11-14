@@ -52,9 +52,10 @@ public class Main {
 
         ProductDAOImpl fivePopularProduct = new ProductDAOImpl();
         try {
-            for (ProductsTO productsSold: fivePopularProduct())
+            for (ProductsTO product:fivePopularProduct.getFivePopularProducts());
+//            System.out.printf(product
         } catch (ClassNotFoundException e) {
-            System.out.println("Employee not found: " + e);
+            System.out.println("Error: " + e);
         }
 
     }
