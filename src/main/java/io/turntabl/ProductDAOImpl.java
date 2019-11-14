@@ -26,4 +26,9 @@ public class ProductDAOImpl implements ProductsDAO {
         return productSold;
 
     }
+
+    @Override
+    public List<ProductsTO> topFiveProducts() {
+        return productSold;
+    }
 }

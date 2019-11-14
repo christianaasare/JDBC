@@ -49,5 +49,13 @@ public class Main {
         } catch (ClassNotFoundException e) {
             System.out.println("Employee not found: " + e);
         }
+
+        ProductDAOImpl fivePopularProduct = new ProductDAOImpl();
+        try {
+            for (ProductsTO productsSold: fivePopularProduct())
+        } catch (ClassNotFoundException e) {
+            System.out.println("Employee not found: " + e);
+        }
+
     }
 }
