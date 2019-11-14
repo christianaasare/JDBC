@@ -16,11 +16,29 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         try {
             System.out.println("Enter the name of the customer: ");
-            String name = scanner.nextLine();
-            DBConnection.searchCustomersByCustomerName(name);
+            String customerName = scanner.nextLine();
+            DBConnection.searchCustomersByCustomerName(customerName);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found: " + e);
+        }
+//        requests a category name and shows all the categories with similar names.
+        Scanner sn = new Scanner(System.in);
+        try {
+            System.out.println("Enter the name of the category type: ");
+            String categoryName = sn.nextLine();
+            DBConnection.searchCategoryByName(categoryName);
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found: " + e);
         }
 
+        //   requests an employee name and shows all the employees with similar names.
+        Scanner scan = new Scanner(System.in);
+        try {
+            System.out.println("Enter the name of the category type: ");
+            String categoryName = scan.nextLine();
+            DBConnection.searchCategoryByName(categoryName);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found: " + e);
+        }
     }
 }
