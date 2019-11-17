@@ -20,7 +20,7 @@ public class SalesDAOImpl implements SalesDAO {
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                sales.add(new SalesTO(rs.getInt("unit_price"),rs.getDate("dates"),rs.getString("product_name"),rs.getString("contact_name")));
+                sales.add(new SalesTO(rs.getInt("unit_price"),rs.getDate("order_date"),rs.getString("product_name"),rs.getString("contact_name")));
             }
         } catch (SQLException e) {
             System.err.println("Connection error " + e);
