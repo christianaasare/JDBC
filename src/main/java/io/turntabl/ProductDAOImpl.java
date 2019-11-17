@@ -17,7 +17,7 @@ public class ProductDAOImpl implements ProductsDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next())
-                productSold.add(new ProductsTO(resultSet.getString("product_name"),resultSet.getString("unit_price")));
+                productSold.add(new ProductsTO(resultSet.getString("product_name"),resultSet.getInt("unit_price")));
         } catch (SQLException e) {
             System.err.println("Connection err" + e) ;
 //            e.printStackTrace();
@@ -26,4 +26,21 @@ public class ProductDAOImpl implements ProductsDAO {
         return productSold;
 
     }
-}
+
+    @Override
+        public List<ProductsTO> getFivePopularProducts () throws ClassNotFoundException {
+            Class.forName("org.postgresql.Driver");
+            try (Connection db = DriverManager.getConnection(url, "christiana-asare", "turntabl")) {
+                PreparedStatement preparedStatement = db.prepareStatement("select count(order_details.product_id) as count, products.product_name from products inner join order_details on products.product_id = order_details.product_id group by products.product_name order by count desc limit 5");
+                preparedStatement.clearParameters();
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next())
+                    productSold.add(new ProductsTO(resultSet.getString("product_name"), resultSet.getInt("unit_price")));
+            } catch (SQLException e) {
+                System.err.println("Connection err" + e);
+
+            }
+            return productSold;
+        }
+    }
