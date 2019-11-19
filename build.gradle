@@ -1,4 +1,6 @@
 plugins {
+//    id 'org.springframework.context' version '2.2.1.RELEASE'
+//    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
     id 'application'
     //id 'distribution'
@@ -16,6 +18,12 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.postgresql', name:'postgresql', version: '42.2.8'
+        compile 'org.springframework:spring-core:5.2.1.RELEASE'
+        compile 'org.springframework:spring-beans:5.2.1.RELEASE'
+        compile 'org.springframework:spring-context:5.2.1.RELEASE'
+        runtime 'org.springframework:spring-context:5.2.1.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.0.1.RELEASE'
+
 }
 
 application {
