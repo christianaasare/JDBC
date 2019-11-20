@@ -2,24 +2,30 @@ package io.turntabl;
 
 public class ProductsTO {
 
-    String productName;
-    int unitPrice;
+   private String product_name;
+   private int unit_price;
 
-    public ProductsTO(String productName, int unitPrice) {
-        this.productName = productName;
-        this.unitPrice = unitPrice;
+    public ProductsTO(String product_name, int unitPrice) {
+        this.product_name = product_name;
+        this.unit_price = unitPrice;
     }
 
     public String getProductName() {
-        return productName;
+        return product_name;
     }
 
 
     public int getUnitPrice() {
-        return unitPrice;
+        return unit_price;
     }
 
-
+    @Override
+    public String toString() {
+        return "{" +
+                "productName='" + product_name + '\'' +
+                ", unitPrice=" + unit_price +
+                '}';
+    }
 }
 
 
